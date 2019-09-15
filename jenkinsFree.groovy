@@ -18,7 +18,7 @@ job = Jenkins.instance.createProject(FreeStyleProject, 'TestJob')
 job.setDescription("Free style with Groovy - raw script")
 job.displayName = 'SomeTestJob(TESTING groovy)'
 
-job.scm = new hudson.plugins.git.GitSCM(repository)
+job.scm = new hudson.plugins.git.GitSCM(repository,'*/master')
 //job.addTrigger(new TimerTrigger("* * * * *"))
 def spec = "* * * * *";
 hudson.triggers.TimerTrigger newCron = new hudson.triggers.TimerTrigger(spec);
