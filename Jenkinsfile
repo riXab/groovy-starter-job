@@ -5,7 +5,7 @@ node('master') {
 	//def jobName = ''
     //git url: 'https://github.com/riXab/reference-groovy-pipeline.git'
     echo "****load pipeline"
-	load 'configMavenAutoInstaller.groovy'
+	//load 'configMavenAutoInstaller.groovy'
 	pipeline = load 'Jenkinsfile-FreeStyle.groovy'
     pipeline.createFreestyleProject()
 }
