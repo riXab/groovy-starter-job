@@ -5,7 +5,7 @@ import hudson.model.FreeStyleProject
    def createFreestyleProject(){
        def parent = Jenkins.getInstance()
        //Instantiate a new project
-       def project = new FreeStyleProject(parent, 'my-free-style');
+       def project = new FreeStyleProject(parent, "my-free-style");
         //Set a description for the project
        project.setDescription("Just a placeholder for a description")
         //Create a parameter for the project
@@ -22,3 +22,5 @@ import hudson.model.FreeStyleProject
        parent.reload()
 
 }
+
+return this

@@ -54,3 +54,5 @@ jenkins.save()
 
 echo "Reload Job"
 jenkins.reload()
+
+//return this
