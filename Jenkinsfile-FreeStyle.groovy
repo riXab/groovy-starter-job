@@ -27,7 +27,7 @@ import jenkins.model.Jenkins
 		//project.getSCM("https://github.com/riXab/groovy-pipeline-scripting.git")
 		def branchConfig = [new BranchSpec("master")]
 		def userConfig = [new UserRemoteConfig(repository, null, null, null)]
-		project.setSCM(repository)
+		project.setSCM(new hudson.plugins.git.GitSCM(repository))
 		//project.setSCM(new hudson.plugins.git.GitSCM(userConfig, branchConfig, false, [], null, null, null))
 	println "SCM Set"	
        project.save()
