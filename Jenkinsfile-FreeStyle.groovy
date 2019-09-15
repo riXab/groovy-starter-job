@@ -54,10 +54,20 @@ project.setScm(scm)
 
 
 
+println "Trying for Build Configuration now.."
+
+if (scm instance of hudson.plugins.git.GitSCM){
+	println "Yes, for scm being instance of GitSCM"
+}
+
+println "Trying something out.."
+project.scheduleBuild2(0)
 //set build steps
-FreeStyleBuild build = jenkins.buildAndAssertSuccess(project);
-def command = "echo Set Build to Maven Install";
-project.getBuildersList().add(Functions.isWindows() ? new BatchFile(command) : new Shell(command))
+//FreeStyleBuild build = jenkins.buildAndAssertSuccess(project);
+//def command = "echo Set Build to Maven Install";
+//project.getBuildersList().add(Functions.isWindows() ? new BatchFile(command) : new Shell(command))
+
+
 
 
 
@@ -65,9 +75,6 @@ project.getBuildersList().add(Functions.isWindows() ? new BatchFile(command) : n
 //set post build steps
 def publishersList = project.getPublishersList()
 publishersList.add(new hudson.tasks.BuildTrigger("my-groove", true))
-
-
-
 
 project.save()
 parent.reload()   //Jenkins.instance.reload() -- same thing.. Don't do 'restart'
