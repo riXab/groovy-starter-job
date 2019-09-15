@@ -14,3 +14,5 @@ jenkins.setSystemMessage(systemMessage)
 
 // save current Jenkins state to disk
 jenkins.save()
+
+return this
