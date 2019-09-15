@@ -5,6 +5,7 @@ import hudson.plugins.git.*
 import hudson.plugins.git.extensions.*
 import hudson.plugins.git.extensions.impl.*
 import jenkins.model.Jenkins
+import hudson.triggers.*
 import hudson.model.FreeStyleProject
 
 // parameters
@@ -18,7 +19,7 @@ job.displayName = 'SomeTestJob(TESTING groovy)'
 
 job.scm = new hudson.plugins.git.GitSCM(repository)
 job.trigger("* * * * *")
-
+job.buildtrigger("my-groove")
 
 echo "Save Job"
 job.save()
