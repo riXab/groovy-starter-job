@@ -68,7 +68,7 @@ project.setScm(scm)
 
 println "Trying for Build Configuration now.."
 
-if (scm instance of hudson.plugins.git.GitSCM){
+if (scm instanceof hudson.plugins.git.GitSCM){
 	println "Yes, for scm being instance of GitSCM"
 }
 
