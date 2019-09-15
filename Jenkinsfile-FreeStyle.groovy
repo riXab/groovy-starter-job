@@ -54,8 +54,7 @@ def scm = new GitSCM(usersconfig, branches, false, submoduleCnf, null, null, git
 project.setScm(scm)
 
 project.save()
-parent.reload()
-//Jenkins.instance.restart()
+parent.reload()   //Jenkins.instance.reload() -- same thing.. Don't do 'restart'
 
 
 	 //project.getSCM("https://github.com/riXab/groovy-pipeline-scripting.git")
