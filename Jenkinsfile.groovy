@@ -8,23 +8,23 @@ import jenkins.model.Jenkins
 
 // parameters
 echo "Start Groovy.."
-echo "Set Parameter for Job - MyJob_2"
+echo "Set Parameter for Job - MyJob_3"
 def jobParameters = [
   name:          'MyJob_2',
   description:   'Build of my STG environment : https://stg.mycompany.com',
   repository:    'https://github.com/riXab/groovy-pipeline-scripting.git',
-  branch:        'master',
-  credentialId:  'jenkins-key'
+  branch:        'master' //,
+ // credentialId:  ''
 ]
 
 // define repo configuration
 def branchConfig                =   [new BranchSpec(jobParameters.branch)]
-def userConfig                  =   [new UserRemoteConfig(jobParameters.repository, null, null, jobParameters.credentialId)]
-def cleanBeforeCheckOutConfig   =   new CleanBeforeCheckout()
-def sparseCheckoutPathConfig    =   new SparseCheckoutPaths([new SparseCheckoutPath("Jenkinsfile")])
-def cloneConfig                 =   new CloneOption(true, true, null, 3)
-def extensionsConfig            =   [cleanBeforeCheckOutConfig,sparseCheckoutPathConfig,cloneConfig]
-def scm                         =   new GitSCM(userConfig, branchConfig, false, [], null, null, extensionsConfig)
+def userConfig                  =   [new UserRemoteConfig(jobParameters.repository, null, null, /*jobParameters.credentialId*/null)]
+//def cleanBeforeCheckOutConfig   =   new CleanBeforeCheckout()
+//def sparseCheckoutPathConfig    =   new SparseCheckoutPaths([new SparseCheckoutPath("Jenkinsfile")])
+//def cloneConfig                 =   new CloneOption(true, true, null, 3)
+//def extensionsConfig            =   [cleanBeforeCheckOutConfig,sparseCheckoutPathConfig,cloneConfig]
+def scm                         =   new GitSCM(userConfig, branchConfig, false, [], null, null, /*extensionsConfig*/null)
 
 // define SCM flow
 def flowDefinition = new org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition(scm, "Jenkinsfile")
