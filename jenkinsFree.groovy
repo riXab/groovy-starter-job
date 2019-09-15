@@ -7,6 +7,7 @@ import hudson.plugins.git.extensions.impl.*
 import jenkins.model.Jenkins
 import hudson.triggers.*
 import hudson.model.FreeStyleProject
+//import hudson.triggers.TimerTrigger
 
 // parameters
 echo "Start Groovy.."
@@ -23,7 +24,7 @@ def spec = "* * * * *";
 hudson.triggers.TimerTrigger newCron = new hudson.triggers.TimerTrigger(spec);
 newCron.start(job, true);
 job.addTrigger(newCron);
-job.buildTrigger("my-groove")
+//job.buildTrigger("my-groove")
 
 echo "Save Job"
 job.save()
