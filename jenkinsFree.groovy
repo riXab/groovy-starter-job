@@ -28,13 +28,13 @@ newCron.start(job, true);
 job.addTrigger(newCron);
 //job.buildTrigger("my-groove")
 
-def jdk = tool name: 'localJDK'
-env.JAVA_HOME = "${jdk}"
+//def jdk = tool name: 'localJDK'
+//env.JAVA_HOME = "${jdk}"
 
-withEnv(["PATH+MAVEN=${tool 'localMaven'}/bin"]) {
-				bat 'mvn -B verify'
-			}
- archive '**/*.war'
+//withEnv(["PATH+MAVEN=${tool 'localMaven'}/bin"]) {
+//				bat 'mvn -B verify'
+//			}
+ //archive '**/*.war'
 
 
 echo "Save Job"
