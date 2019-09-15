@@ -7,10 +7,12 @@ import hudson.plugins.git.extensions.impl.*
 import jenkins.model.Jenkins
 
 // parameters
+echo "Start Groovy.."
+echo "Set Parameter for Job - MyJob_2"
 def jobParameters = [
-  name:          'MyJob',
+  name:          'MyJob_2',
   description:   'Build of my STG environment : https://stg.mycompany.com',
-  repository:    'git@github.com:riXab/groovy-pipeline-scripting.git',
+  repository:    'https://github.com/riXab/groovy-pipeline-scripting.git',
   branch:        'master',
   credentialId:  'jenkins-key'
 ]
