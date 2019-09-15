@@ -10,11 +10,10 @@ import jenkins.model.Jenkins
 echo "Start Groovy.."
 echo "Set Parameter for Job - MyJob_3"
 def jobParameters = [
-  name:          'MyJob_2',
+  name:          'MyJob_3',
   description:   'Build of my STG environment : https://stg.mycompany.com',
   repository:    'https://github.com/riXab/groovy-pipeline-scripting.git',
-  branch:        'master' ,
-  credentialId:  ''
+  branch:        'master'
 ]
 
 // define repo configuration
