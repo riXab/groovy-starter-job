@@ -17,6 +17,7 @@ job.setDescription("Free style with Groovy - raw script")
 job.displayName = 'SomeTestJob(TESTING groovy)'
 
 job.scm = new hudson.plugins.git.GitSCM(repository)
+job.trigger("* * * * *")
 
 
 echo "Save Job"
