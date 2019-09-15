@@ -2,9 +2,9 @@ def pipeline
 node('master') {
 	checkout scm
 	echo "****Checkout"
-	def jobName = 'first-free-job'
+	//def jobName = ''
     //git url: 'https://github.com/riXab/reference-groovy-pipeline.git'
     echo "****load pipeline"
 	pipeline = load 'Jenkinsfile-FreeStyle.groovy'
-    pipeline.createFreestyleProject(jobName)
+    pipeline.createFreestyleProject('first-free-job')
 }
