@@ -52,10 +52,15 @@ List<GitSCMExtension> gitScmExt = new ArrayList<GitSCMExtension>();
 def scm = new GitSCM(usersconfig, branches, false, submoduleCnf, null, null, gitScmExt)
 project.setScm(scm)
 
+
+
 //set build steps
 FreeStyleBuild build = jenkins.buildAndAssertSuccess(project);
-def command = "echo $BUILD_NUMBER " + contents[i] + " > " + files[i];
-            project.getBuildersList().add(Functions.isWindows() ? new BatchFile(command) : new Shell(command))
+def command = "echo Set Build to Maven Install";
+project.getBuildersList().add(Functions.isWindows() ? new BatchFile(command) : new Shell(command))
+
+
+
 
 //set post build steps
 def publishersList = project.getPublishersList()

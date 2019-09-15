@@ -18,12 +18,16 @@ job.setDescription("Free style with Groovy - raw script")
 job.displayName = 'SomeTestJob(TESTING groovy)'
 
 job.scm = new hudson.plugins.git.GitSCM(repository)
-job.addTrigger(new TimerTrigger("* * * * *"))
+//job.addTrigger(new TimerTrigger("* * * * *"))
+def spec = "* * * * *";
+hudson.triggers.TimerTrigger newCron = new hudson.triggers.TimerTrigger(spec);
+newCron.start(job, true);
+job.addTrigger(newCron);
 job.buildTrigger("my-groove")
 
 echo "Save Job"
 job.save()
 echo "Reload Job"
-//job.reload()
+Jenkins.instance.reload()
 
 //return this
