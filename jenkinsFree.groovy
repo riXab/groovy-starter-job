@@ -10,9 +10,9 @@ import hudson.model.FreeStyleProject
 //import hudson.triggers.TimerTrigger
 
 
-node('master'){
+def build(){
 	
-	
+	checkout scm
 def jdk = tool name: 'localJDK'
 env.JAVA_HOME = "${jdk}"
 
@@ -37,6 +37,7 @@ hudson.triggers.TimerTrigger newCron = new hudson.triggers.TimerTrigger(spec);
 newCron.start(job, true);
 job.addTrigger(newCron);
 //job.buildTrigger("my-groove")
+build()
  archive '**/*.war'
 
 
