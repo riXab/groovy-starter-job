@@ -6,5 +6,5 @@ node('master') {
     //git url: 'https://github.com/riXab/reference-groovy-pipeline.git'
     echo "****load pipeline"
 	pipeline = load 'Jenkinsfile-FreeStyle.groovy'
-    pipeline.createFreestyleProject('first-free-job')
+    pipeline.createFreestyleProject()
 }

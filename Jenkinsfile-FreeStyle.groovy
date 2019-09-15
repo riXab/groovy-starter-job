@@ -2,10 +2,10 @@ import com.cloudbees.groovy.cps.NonCPS
 import hudson.model.FreeStyleProject
 
 @NonCPS
-   def createFreestyleProject(String projectName){
+   def createFreestyleProject(){
        def parent = Jenkins.getInstance()
        //Instantiate a new project
-       def project = new FreeStyleProject(parent, projectName);
+       def project = new FreeStyleProject(parent, 'my-free-style');
         //Set a description for the project
        project.setDescription("Just a placeholder for a description")
         //Create a parameter for the project
