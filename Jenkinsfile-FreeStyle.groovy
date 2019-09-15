@@ -18,6 +18,9 @@ import hudson.model.FreeStyleProject
        //def jobProperty = new ParametersDefinitionProperty(parameterDefinitions)
         //Adding and saving the job property to the project
      //  project.addProperty(jobProperty)
+	 
+		project.getSCM("https://github.com/riXab/groovy-pipeline-scripting.git")
+		
        project.save()
        parent.reload()
 
