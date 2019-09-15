@@ -3,6 +3,7 @@ import hudson.model.FreeStyleProject
 
 @NonCPS
    def createFreestyleProject(){
+	   String repository = "https://github.com/riXab/groovy-pipeline-scripting.git";
        def parent = Jenkins.getInstance()
        //Instantiate a new project
        def project = new FreeStyleProject(parent, "my-free-stylING");
@@ -19,7 +20,10 @@ import hudson.model.FreeStyleProject
         //Adding and saving the job property to the project
      //  project.addProperty(jobProperty)
 	 
-		project.getSCM("https://github.com/riXab/groovy-pipeline-scripting.git")
+		//project.getSCM("https://github.com/riXab/groovy-pipeline-scripting.git")
+		def branchConfig = [new BranchSpec("master")]
+		def userConfig = [new UserRemoteConfig(repository, null, null, null)]
+		project.setSCM(new hudson.plugins.git.GitSCM(userConfig, branchConfig, false, [], null, null, null))
 		
        project.save()
        parent.reload()
