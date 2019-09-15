@@ -1,5 +1,9 @@
 import com.cloudbees.groovy.cps.NonCPS
 import hudson.model.FreeStyleProject
+import hudson.plugins.git.*
+import hudson.plugins.git.extensions.*
+import hudson.plugins.git.extensions.impl.*
+import jenkins.model.Jenkins
 
 @NonCPS
    def createFreestyleProject(){
