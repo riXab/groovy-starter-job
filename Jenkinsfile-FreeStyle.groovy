@@ -54,8 +54,8 @@ def scm = new GitSCM(usersconfig, branches, false, submoduleCnf, null, null, git
 project.setScm(scm)
 
 project.save()
-
-Jenkins.instance.restart()
+//project.reload()
+//Jenkins.instance.restart()
 
 
 	 //project.getSCM("https://github.com/riXab/groovy-pipeline-scripting.git")
@@ -65,7 +65,7 @@ Jenkins.instance.restart()
 		//project.setSCM(new hudson.plugins.git.GitSCM(userConfig, branchConfig, false, [], null, null, null))
 //	println "SCM Set"	
   //     project.save()
-    //   parent.reload()
+    //   
 
 }
 
