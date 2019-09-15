@@ -23,12 +23,12 @@ import jenkins.model.Jenkins
        def jobProperty = new ParametersDefinitionProperty(parameterDefinitions)
         //Adding and saving the job property to the project
        project.addProperty(jobProperty)
-	 
+	 println "Property Set"
 		//project.getSCM("https://github.com/riXab/groovy-pipeline-scripting.git")
 		def branchConfig = [new BranchSpec("master")]
 		def userConfig = [new UserRemoteConfig(repository, null, null, null)]
 		project.setSCM(new hudson.plugins.git.GitSCM(userConfig, branchConfig, false, [], null, null, null))
-		
+	println "SCM Set"	
        project.save()
        parent.reload()
 
