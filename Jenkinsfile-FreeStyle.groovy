@@ -10,7 +10,7 @@ import jenkins.model.Jenkins
 	   String repository = "https://github.com/riXab/groovy-pipeline-scripting.git";
        def parent = Jenkins.getInstance()
        //Instantiate a new project
-       def project = new FreeStyleProject(parent, "my-free-stylING");
+       def project = new FreeStyleProject(parent, "my-style");
         //Set a description for the project
        project.setDescription("Just a placeholder for a description")
         //Create a parameter for the project
