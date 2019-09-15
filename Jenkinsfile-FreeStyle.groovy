@@ -54,7 +54,7 @@ def scm = new GitSCM(usersconfig, branches, false, submoduleCnf, null, null, git
 project.setScm(scm)
 
 project.save()
-//project.reload()
+parent.reload()
 //Jenkins.instance.restart()
 
 
