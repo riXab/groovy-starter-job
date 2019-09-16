@@ -73,7 +73,7 @@ if (scm instanceof hudson.plugins.git.GitSCM){
 }
 
 println "Trying something out.."
-project.scheduleBuild2(0)
+//project.scheduleBuild2(0)
 //set build steps
 //FreeStyleBuild build = jenkins.buildAndAssertSuccess(project);
 //def command = "echo Set Build to Maven Install";
@@ -81,7 +81,8 @@ project.scheduleBuild2(0)
 
 
 
-
+def buildersList = project.getBuildersList()
+buildersList.add(new hudson.tasks.Maven("clean package", "localMaven", false, null, null, false))
 
 
 //set post build steps
