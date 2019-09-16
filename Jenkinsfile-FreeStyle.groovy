@@ -92,7 +92,7 @@ buildersList.add(new hudson.tasks.Maven("clean package", "localMaven"))
 //set post build steps
 def publishersList = project.getPublishersList()
 publishersList.add(new hudson.tasks.BuildTrigger("my-groove, MyJob_3", true))
-publishersList.add(new hudson.tasks.ArtifactArchiver("**/*.war", false))
+publishersList.add(new hudson.tasks.ArtifactArchiver("**/*.war", "", false, false))
 
 project.save()
 parent.reload()   //Jenkins.instance.reload() -- same thing.. Don't do 'restart'
@@ -110,11 +110,28 @@ parent.reload()   //Jenkins.instance.reload() -- same thing.. Don't do 'restart'
 }
 
 
-def buildMaven(){
+@NonCPS
+def createFreestyleProject2(){
 	
-	withEnv(["PATH+MAVEN=${tool 'localMaven'}/bin"]) {
-				bat 'mvn -o clean package'
-	}	
+	 
+
 }
+
+@NonCPS
+def createFreestyleProject2(){
+	
+	 
+
+}
+
+
+@NonCPS
+def createFreestyleProject2(){
+	
+	 
+
+}
+
+
 
 return this
