@@ -83,7 +83,7 @@ println "Trying something out.."
 
 def buildersList = project.getBuildersList()
 //buildersList.add(new hudson.tasks.Maven("clean package", "localMaven", false, new jenkins.mvn.DefaultSettingsProvider(), new jenkins.mvn.DefaultGlobalSettingsProvider(), false))
-buildersList.add(new hudson.tasks.Maven("clean package", "localMaven")
+buildersList.add(new hudson.tasks.Maven("clean package", "localMaven"))
 	
 //set post build steps
 def publishersList = project.getPublishersList()
