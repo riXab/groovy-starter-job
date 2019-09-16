@@ -41,8 +41,8 @@ env.JAVA_HOME = "${jdk}"
 	 project.addTrigger(new TimerTrigger("* * * * *"))
 
 	 	//SET JDK Path
-	dis = new hudson.model.JDK.DescriptorImpl();
-	dis.setInstallations( new hudson.model.JDK("localJDK", "C://Program/ Files//Java//jdk1.8.0_172"));
+//	dis = new hudson.model.JDK.DescriptorImpl();
+	//dis.setInstallations( new hudson.model.JDK("localJDK", "C://Program/ Files//Java//jdk1.8.0_172"));
 	 
 	//SET MAven Path
 	//def desc = parent.getDescriptor("hudson.tasks.Maven")
