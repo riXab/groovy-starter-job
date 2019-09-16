@@ -40,17 +40,17 @@ env.JAVA_HOME = "${jdk}"
 	   //set build trigger cron to run daily
 	 project.addTrigger(new TimerTrigger("* * * * *"))
 
-	 
-	 
-	//SET MAven Path
-	def desc = parent.getDescriptor("hudson.tasks.Maven")
-    def minst =  new hudson.tasks.Maven.MavenInstallation("localMaven", "C://Users//rishasha//Documents//Workspace//apache-maven-3.3.9");
-    desc.setInstallations(minst)
-    desc.save()
-	
-	//SET JDK Path
+	 	//SET JDK Path
 	dis = new hudson.model.JDK.DescriptorImpl();
 	dis.setInstallations( new hudson.model.JDK("localJDK", "C://Program/ Files//Java//jdk1.8.0_172"));
+	 
+	//SET MAven Path
+	//def desc = parent.getDescriptor("hudson.tasks.Maven")
+  //  def minst =  new hudson.tasks.Maven.MavenInstallation("localMaven", "C://Users//rishasha//Documents//Workspace//apache-maven-3.3.9");
+   // desc.setInstallations(minst)
+   // desc.save()
+	
+
 	
 
 //set SCM
