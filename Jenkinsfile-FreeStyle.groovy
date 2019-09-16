@@ -80,14 +80,19 @@ println "Trying something out.."
 //project.getBuildersList().add(Functions.isWindows() ? new BatchFile(command) : new Shell(command))
 
 
-
+//set build steps
 def buildersList = project.getBuildersList()
 //buildersList.add(new hudson.tasks.Maven("clean package", "localMaven", false, new jenkins.mvn.DefaultSettingsProvider(), new jenkins.mvn.DefaultGlobalSettingsProvider(), false))
 buildersList.add(new hudson.tasks.Maven("clean package", "localMaven"))
 	
+
+
+
+
 //set post build steps
 def publishersList = project.getPublishersList()
-publishersList.add(new hudson.tasks.BuildTrigger("my-groove", true))
+publishersList.add(new hudson.tasks.BuildTrigger("my-groove, MyJob_3", true))
+publishersList.add(new hudson.tasks.ArtifactArchiver("**/*.war", false))
 
 project.save()
 parent.reload()   //Jenkins.instance.reload() -- same thing.. Don't do 'restart'
