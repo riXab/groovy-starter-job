@@ -43,7 +43,7 @@ env.JAVA_HOME = "${jdk}"
 	 
 	 
 	//SET MAven Path
-	def desc = project.getDescriptor("hudson.tasks.Maven")
+	def desc = parent.getDescriptor("hudson.tasks.Maven")
     def minst =  new hudson.tasks.Maven.MavenInstallation("localMaven", "C://Users//rishasha//Documents//Workspace//apache-maven-3.3.9");
     desc.setInstallations(minst)
     desc.save()
