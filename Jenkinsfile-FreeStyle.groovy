@@ -121,8 +121,27 @@ def createCheckstyleProject(){
        def project = new FreeStyleProject(parent, "my-style-check");
         //Set a description for the project
        project.setDescription("Code Quality Check")
+	   
+	   
+//set SCM
+List<BranchSpec> branches = Collections.singletonList(new BranchSpec("*/master"));
+List<SubmoduleConfig> submoduleCnf = Collections.<SubmoduleConfig>emptyList();
+// We are using predefined user id jenkins. You change it in the global config
+List<UserRemoteConfig> usersconfig = Collections.singletonList(
+        new UserRemoteConfig(repository, '', '', '')
+)
+List<GitSCMExtension> gitScmExt = new ArrayList<GitSCMExtension>();
+def scm = new GitSCM(usersconfig, branches, false, submoduleCnf, null, null, gitScmExt)
+project.setScm(scm)
+
 	   def buildersList = project.getBuildersList()
 		buildersList.add(new hudson.tasks.Maven("checkstyle:checkstyle", "localMaven"))
+		
+		def publishersList = project.getPublishersList()
+//publishersList.add(new hudson.tasks.BuildTrigger("my-groove, MyJob_3", false))
+publishersList.add(new hudson.plugins.checkstyle.CheckStylePublisher(""))
+
+
 	   project.save()
 parent.reload() 
 
