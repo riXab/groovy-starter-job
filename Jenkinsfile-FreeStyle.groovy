@@ -91,7 +91,7 @@ buildersList.add(new hudson.tasks.Maven("clean package", "localMaven"))
 
 //set post build steps
 def publishersList = project.getPublishersList()
-publishersList.add(new hudson.tasks.BuildTrigger("my-groove, MyJob_3", false))
+//publishersList.add(new hudson.tasks.BuildTrigger("my-groove, MyJob_3", false))
 publishersList.add(new hudson.tasks.ArtifactArchiver("**/*.war", "", false, false))
 
 project.save()
