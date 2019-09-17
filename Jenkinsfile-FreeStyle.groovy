@@ -117,21 +117,6 @@ def createFreestyleProject2(){
 
 }
 
-@NonCPS
-def createFreestyleProject2(){
-	
-	 
-
-}
-
-
-@NonCPS
-def createFreestyleProject2(){
-	
-	 
-
-}
-
 
 
 return this
