@@ -38,7 +38,7 @@ env.JAVA_HOME = "${jdk}"
 	 println "Property Set"
 	   
 	   //set build trigger cron to run daily
-	 project.addTrigger(new TimerTrigger("* * * * *"))
+	 project.addTrigger(new hudson.triggers.SCMTrigger("* * * * *"))
 
 	 	//SET JDK Path
 //	dis = new hudson.model.JDK.DescriptorImpl();
@@ -93,6 +93,7 @@ buildersList.add(new hudson.tasks.Maven("clean package", "localMaven"))
 def publishersList = project.getPublishersList()
 //publishersList.add(new hudson.tasks.BuildTrigger("my-groove, MyJob_3", false))
 publishersList.add(new hudson.tasks.BuildTrigger("my-groove", false))
+publishersList.add(new hudson.tasks.BuildTrigger("asf", false))
 publishersList.add(new hudson.tasks.ArtifactArchiver("**/*.war", "", false, false))
 
 project.save()
