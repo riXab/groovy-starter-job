@@ -92,7 +92,7 @@ buildersList.add(new hudson.tasks.Maven("clean package", "localMaven"))
 //set post build steps
 def publishersList = project.getPublishersList()
 //publishersList.add(new hudson.tasks.BuildTrigger("my-groove, MyJob_3", false))
-publishersList.add(new hudson.tasks.BuildTrigger("my-groove", false))
+publishersList.add(new hudson.tasks.BuildTrigger("my-style-check", false))
 publishersList.add(new hudson.tasks.BuildTrigger("asf", false))
 publishersList.add(new hudson.tasks.ArtifactArchiver("**/*.war", "", false, false))
 
@@ -113,9 +113,18 @@ parent.reload()   //Jenkins.instance.reload() -- same thing.. Don't do 'restart'
 
 
 @NonCPS
-def createFreestyleProject2(){
+def createCheckstyleProject(){
 	
-	 
+	  def repository = "https://github.com/riXab/groovy-pipeline-scripting.git";
+       def parent = Jenkins.getInstance()
+       //Instantiate a new project
+       def project = new FreeStyleProject(parent, "my-style-check");
+        //Set a description for the project
+       project.setDescription("Code Quality Check")
+	   def buildersList = project.getBuildersList()
+		buildersList.add(new hudson.tasks.Maven("checkstyle:checkstyle", "localMaven"))
+	   project.save()
+parent.reload() 
 
 }
 

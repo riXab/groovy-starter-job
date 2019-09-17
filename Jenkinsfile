@@ -7,5 +7,8 @@ node('master') {
     echo "****load pipeline"
 	//load 'configMavenAutoInstaller.groovy'
 	pipeline = load 'Jenkinsfile-FreeStyle.groovy'
+	echo "Create Checkstyle"
+	pipeline.createCheckstyleProject()
+	echo "Create Build Job"
     pipeline.createFreestyleProject()
 }
