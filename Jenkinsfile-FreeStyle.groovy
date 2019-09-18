@@ -93,7 +93,7 @@ buildersList.add(new hudson.tasks.Maven("clean package", "localMaven"))
 def publishersList = project.getPublishersList()
 //publishersList.add(new hudson.tasks.BuildTrigger("my-groove, MyJob_3", false))
 publishersList.add(new hudson.tasks.BuildTrigger("my-style-check", true))
-//publishersList.add(new hudson.tasks.BuildTrigger("asf", false))
+publishersList.add(new hudson.tasks.BuildTrigger("asf", false))
 publishersList.add(new hudson.tasks.ArtifactArchiver("**/*.war", "", false, false))
 
 project.save()
