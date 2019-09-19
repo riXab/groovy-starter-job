@@ -176,7 +176,7 @@ def createStageDeploymentProject(){
 
 
 	   def buildersList = project.getBuildersList()
-	buildersList.add(new hudson.plugins.copyartifact.CopyArtifact("my-style", "**/*.war", false))
+	buildersList.add(new hudson.plugins.copyartifact.CopyArtifact("my-style", "**/*.war"))
 	//buildersList.add(new hudson.plugins.copyartifact.CopyArtifact("my-style")
 	//buildersList.add(new hudson.plugins.copyartifact.CopyArtifact("my-style", "**/*.war", "", "", new hudson.plugins.copyartifact.StatusBuildSelector(), false))
 	//buildersList.add(new hudson.plugins.copyartifact.CopyArtifact("my-style", "**/*.war", new hudson.plugins.copyartifact.BuildSelector(),  "", "", false, false))
