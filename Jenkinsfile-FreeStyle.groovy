@@ -117,6 +117,15 @@ parent.reload()   //Jenkins.instance.reload() -- same thing.. Don't do 'restart'
 
 }
 
+@NonCPS
+def startBuild(){
+	// Get Jenkins instance
+def j = Jenkins.getInstance();
+// Get the job we wan't to trigger
+def job = j.getItem("my-style");
+// Finally we schedule a new build which starts directly (the zero in the argument)
+job.scheduleBuild2(0)
+}
 
 @NonCPS
 def createCheckstyleProject(){

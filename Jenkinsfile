@@ -11,4 +11,6 @@ node('master') {
 	pipeline.createCheckstyleProject()
 	echo "Create Build Job"
     pipeline.createFreestyleProject()
+	echo "Start the BUILD"
+	pipeline.startBuild()
 }
