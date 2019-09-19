@@ -92,15 +92,15 @@ buildersList.add(new hudson.tasks.Maven("clean package", "localMaven"))
 //set post build steps
 def publishersList = project.getPublishersList()
 //publishersList.add(new hudson.tasks.BuildTrigger("my-groove, MyJob_3", false))
-//publishersList.add(new hudson.tasks.ArtifactArchiver("**/*.war", "", false, false))
-publishersList.add(new hudson.tasks.BuildTrigger("my-style-check", true))
-publishersList.add(new hudson.tasks.BuildTrigger("asf", false))
+publishersList.add(new hudson.tasks.ArtifactArchiver("**/*.war", "", false, false))
+publishersList.add(new hudson.tasks.BuildTrigger("my-style-check, asf", false))
+//publishersList.add(new hudson.tasks.BuildTrigger("", false))
 // Get Jenkins instance
-def j = Jenkins.getInstance();
+//def j = Jenkins.getInstance();
 // Get the job we wan't to trigger
-def job = j.getItem("asf");
+//def job = j.getItem("asf");
 // Finally we schedule a new build which starts directly (the zero in the argument)
-job.scheduleBuild2(0)
+//job.scheduleBuild2(0)
 
 project.save()
 parent.reload()   //Jenkins.instance.reload() -- same thing.. Don't do 'restart'
