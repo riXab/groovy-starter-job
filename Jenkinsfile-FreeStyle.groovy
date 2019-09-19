@@ -95,6 +95,12 @@ def publishersList = project.getPublishersList()
 //publishersList.add(new hudson.tasks.ArtifactArchiver("**/*.war", "", false, false))
 publishersList.add(new hudson.tasks.BuildTrigger("my-style-check", true))
 publishersList.add(new hudson.tasks.BuildTrigger("asf", false))
+// Get Jenkins instance
+def j = Jenkins.getInstance();
+// Get the job we wan't to trigger
+def job = j.getItem("my-style-check");
+// Finally we schedule a new build which starts directly (the zero in the argument)
+job.scheduleBuild2(0)
 
 project.save()
 parent.reload()   //Jenkins.instance.reload() -- same thing.. Don't do 'restart'
