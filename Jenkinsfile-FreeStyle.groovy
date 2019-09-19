@@ -163,5 +163,30 @@ parent.reload()
 }
 
 
+@NonCPS
+def createStageDeploymentProject(){
+	
+
+       def parent = Jenkins.getInstance()
+       //Instantiate a new project
+       def project = new FreeStyleProject(parent, "my-style-stage");
+        //Set a description for the project
+       project.setDescription("Deploy war to Stage")
+	   
+
+
+	   def buildersList = project.getBuildersList()
+	buildersList.add(new hudson.plugins.copyartifact.CopyArtifact("my-style", "**/*.war", false))
+		
+		echo "Fetching the artifact from developed job"
+		
+
+	   project.save()
+parent.reload() 
+
+}
+
+
+
 
 return this
